@@ -1,1194 +1,315 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Curso online para homens que desejam melhorar sua saúde sexual, confiança e desempenho com método baseado em ciência, discreto e com resultados em 8 semanas." />
-  <title>Recupere sua Confiança – Saúde Sexual Masculina</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --color-dark: #0A0A0A;
-      --color-green-light: #64FFDA;
-      --color-green-dark: #004D40;
-      --color-text-light: #F0F0F0;
-      --color-accent: #4CAF50;
-      --font-primary: 'Montserrat', sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversa WhatsApp</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+```
     body {
-      font-family: var(--font-primary);
-      background-color: var(--color-dark);
-      color: var(--color-text-light);
-      line-height: 1.6;
-      overflow-x: hidden;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        background: #0a1014;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
     }
 
-    .container {
-      min-height: 100vh;
-      padding: 20px 5vw 40px;
-      position: relative;
-      z-index: 1;
+    .phone-container {
+        width: 100%;
+        max-width: 380px;
+        background: #111b21;
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.5);
     }
 
-    .container::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 10% 50%, var(--color-green-dark) 0%, transparent 40%),
-                  radial-gradient(circle at 90% 50%, var(--color-green-dark) 0%, transparent 40%),
-                  linear-gradient(to bottom, transparent 80%, var(--color-dark) 100%);
-      opacity: 0.5;
-      z-index: -1;
-    }
-
-    /* Header */
-    .header {
-      padding: 10px 0;
-      margin-bottom: 50px;
-    }
-
-    .logo {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--color-green-light);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      opacity: 0.8;
-    }
-
-    /* Hero */
-    .content-area {
-      display: flex;
-      gap: 40px;
-      align-items: flex-start;
-    }
-
-    .text-side {
-      max-width: 600px;
-    }
-
-    .main-title {
-      font-size: 3.8rem;
-      font-weight: 900;
-      margin-bottom: 20px;
-      line-height: 1.1;
-    }
-
-    .highlight-confidence {
-      color: var(--color-text-light);
-    }
-
-    .highlight-performance {
-      color: var(--color-green-light);
-    }
-
-    .subtitle, .features {
-      font-size: 1.1rem;
-      margin-bottom: 25px;
-      max-width: 550px;
-    }
-
-    .subtitle {
-      opacity: 0.85;
-    }
-
-    .features {
-      font-weight: 600;
-      color: var(--color-green-light);
-    }
-
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      padding: 16px 32px;
-      margin-top: 10px;
-      background: var(--color-green-light);
-      color: var(--color-dark);
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 1.15rem;
-      border-radius: 8px;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-
-    .cta-button:hover {
-      background: #4de6c5;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
-    }
-
-    .arrow {
-      margin-left: 12px;
-      font-size: 1.4rem;
-      transition: transform 0.3s;
-    }
-
-    .cta-button:hover .arrow {
-      transform: translateX(4px);
-    }
-
-    .footer-details {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: 50px;
-      font-size: 0.95rem;
-      opacity: 0.8;
-    }
-
-    .stars {
-      color: #FFD700;
-      margin-right: 6px;
-    }
-
-    .separator {
-      font-weight: 900;
-    }
-
-    /* Image */
-    .image-side {
-      flex: 1;
-      margin-top: -60px;
-      margin-left: 20px;
-    }
-
-    .model-image {
-      width: 100%;
-      min-height: 70vh;
-      background: url('https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80') center/cover no-repeat;
-      border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    }
-
-    /* Seções Comuns */
-    .section {
-      padding: 80px 5vw;
-      text-align: center;
-      background-color: var(--color-dark);
-    }
-
-    .section-title {
-      font-size: 2.4rem;
-      font-weight: 800;
-      margin-bottom: 50px;
-      color: var(--color-text-light);
-    }
-
-    /* Cards */
-    .cards-container, .benefits-grid, .testimonials-grid, .security-grid {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
-    .card, .benefit-item, .testimonial-card, .security-item {
-      background: #0d0d0d;
-      border-radius: 12px;
-      padding: 30px;
-      width: 100%;
-      max-width: 350px;
-      border: 1px solid rgba(0, 77, 64, 0.4);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .card:hover, .benefit-item:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4), 0 0 15px var(--color-green-dark);
-    }
-
-    .icon-box, .benefit-icon-box, .security-icon-box {
-      width: 60px;
-      height: 60px;
-      margin: 0 auto 20px;
-      border-radius: 50%;
-      background: rgba(0, 77, 64, 0.4);
-      border: 1px solid var(--color-green-light);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .card-icon, .benefit-icon, .security-icon {
-      font-size: 1.8rem;
-      color: var(--color-green-light);
-    }
-
-    .card-title, .benefit-title, .security-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .card-description, .benefit-description, .security-description {
-      font-size: 1rem;
-      color: #A0A0A0;
-    }
-
-    /* Módulos */
-    .modules-section {
-      padding: 60px 5vw 80px;
-      text-align: center;
-    }
-
-    .top-link {
-      text-align: right;
-      margin-bottom: 50px;
-      padding-right: 5vw;
-    }
-
-    .view-program-link {
-      color: var(--color-green-light);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      display: inline-block;
-      padding: 5px 0;
-      transition: opacity 0.3s;
-    }
-
-    .view-program-link:hover {
-      opacity: 0.8;
-    }
-
-    .section-title-modules {
-      font-size: 2.4rem;
-      font-weight: 800;
-      margin-bottom: 10px;
-      color: var(--color-text-light);
-    }
-
-    .section-subtitle {
-      font-size: 1rem;
-      color: #A0A0A0;
-      margin-bottom: 60px;
-    }
-
-    .modules-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .module-card {
-      background: #0d0d0d;
-      border-radius: 12px;
-      padding: 25px;
-      border: 1px solid rgba(0, 77, 64, 0.3);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .module-number {
-      display: inline-block;
-      background: var(--color-green-light);
-      color: var(--color-dark);
-      width: 30px;
-      height: 30px;
-      line-height: 30px;
-      text-align: center;
-      border-radius: 6px;
-      font-weight: 800;
-      margin-bottom: 12px;
-    }
-
-    .module-title {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .module-description {
-      font-size: 0.95rem;
-      color: #999;
-    }
-
-    /* Por que funciona */
-    .why-it-works-section {
-      padding: 80px 5vw;
-      text-align: center;
-      background-color: var(--color-dark);
-    }
-
-    .why-it-works-title {
-      font-size: 2.4rem;
-      font-weight: 900;
-      margin-bottom: 15px;
-      color: var(--color-text-light);
-    }
-
-    .why-it-works-subtitle {
-      font-size: 1.1rem;
-      color: #A0A0A0;
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.5;
-    }
-
-    /* Depoimentos */
-    .testimonials-section {
-      padding: 80px 5vw;
-      background-color: var(--color-dark);
-      text-align: center;
-    }
-
-    .section-title-testimonials {
-      font-size: 2.4rem;
-      font-weight: 900;
-      margin-bottom: 50px;
-      color: var(--color-text-light);
-    }
-
-    .testimonial-card {
-      text-align: left;
-      min-height: 200px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .testimonial-header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 18px;
+    .whatsapp-header {
+        background: #202c33;
+        padding: 15px 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
     }
 
     .avatar {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 15px;
-      border: 2px solid var(--color-green-light);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 600;
+        font-size: 16px;
     }
 
-    .avatar-placeholder {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: var(--color-green-light);
-      color: var(--color-dark);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-weight: 800;
-      font-size: 1.4rem;
-      margin-right: 15px;
+    .contact-info {
+        flex: 1;
     }
 
-    .reviewer-name {
-      font-weight: 700;
-      font-size: 1.1rem;
+    .contact-name {
+        color: #e9edef;
+        font-size: 16px;
+        font-weight: 500;
     }
 
-    .reviewer-location {
-      font-size: 0.9rem;
-      color: #888;
+    .contact-status {
+        color: #8696a0;
+        font-size: 13px;
     }
 
-    .testimonial-text {
-      font-style: italic;
-      color: #ccc;
-      line-height: 1.5;
+    .chat-area {
+        background: #0a1014;
+        min-height: 600px;
+        padding: 20px 15px;
+        background-image: 
+            repeating-linear-gradient(0deg, transparent, transparent 35px, rgba(255,255,255,.02) 35px, rgba(255,255,255,.02) 36px);
     }
 
-    /* Segurança */
-    .security-section {
-      padding: 80px 5vw;
-      text-align: center;
-      background-color: #051A14; 
-      border-top: 1px solid var(--color-green-dark);
-      border-bottom: 1px solid var(--color-green-dark);
+    .message {
+        margin-bottom: 8px;
+        display: flex;
+        animation: slideIn 0.3s ease;
     }
 
-    .section-title-security {
-      font-size: 2.4rem;
-      font-weight: 700;
-      margin-bottom: 50px;
-      color: var(--color-text-light);
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
-    /* Preços */
-    .pricing-intro-section {
-      padding: 80px 5vw 40px; 
-      text-align: center;
-      background-color: var(--color-dark);
+    .message.sent {
+        justify-content: flex-end;
     }
 
-    .pricing-intro-title {
-      font-size: 2.4rem;
-      font-weight: 900;
-      margin-bottom: 15px;
-      color: var(--color-text-light);
+    .message-bubble {
+        max-width: 80%;
+        padding: 8px 12px;
+        border-radius: 8px;
+        position: relative;
     }
 
-    .pricing-intro-subtitle {
-      font-size: 1.1rem;
-      color: #A0A0A0;
-      max-width: 700px;
-      margin: 0 auto;
-      line-height: 1.5;
+    .message.received .message-bubble {
+        background: #202c33;
+        color: #e9edef;
+        border-radius: 0 8px 8px 8px;
     }
 
-    .pricing-section {
-      padding: 40px 5vw 80px;
+    .message.sent .message-bubble {
+        background: #005c4b;
+        color: #e9edef;
+        border-radius: 8px 0 8px 8px;
     }
 
-    .pricing-grid {
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      flex-wrap: wrap;
-      max-width: 1200px;
-      margin: 0 auto;
+    .message-text {
+        font-size: 14.5px;
+        line-height: 1.5;
+        margin-bottom: 4px;
     }
 
-    .plan-card {
-      background: #0d0d0d;
-      border-radius: 12px;
-      padding: 35px 25px;
-      max-width: 340px;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid rgba(0, 77, 64, 0.5);
+    .message-time {
+        font-size: 11px;
+        color: #8696a0;
+        text-align: right;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 4px;
     }
 
-    .plan-card.popular {
-      border-color: var(--color-green-light);
-      position: relative;
-      transform: scale(1.05);
+    .checkmark {
+        color: #53bdeb;
+        font-size: 16px;
     }
 
-    .popular-badge {
-      position: absolute;
-      top: -12px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: var(--color-green-light);
-      color: var(--color-dark);
-      padding: 6px 20px;
-      border-radius: 20px;
-      font-weight: 800;
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    .date-divider {
+        text-align: center;
+        margin: 15px 0;
     }
 
-    .plan-title {
-      font-size: 1.8rem;
-      font-weight: 800;
-      margin: 10px 0;
+    .date-badge {
+        background: #202c33;
+        color: #8696a0;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: 12.5px;
+        display: inline-block;
     }
 
-    .plan-subtitle {
-      font-size: 1rem;
-      color: #888;
-      margin-bottom: 25px;
+    .emoji {
+        font-size: 18px;
     }
+</style>
+```
 
-    .plan-price {
-      margin: 20px 0;
-    }
-
-    .price-main {
-      font-size: 2.6rem;
-      font-weight: 900;
-      color: var(--color-text-light);
-    }
-
-    .price-usd {
-      font-size: 1rem;
-      color: #777;
-      margin-top: 4px;
-      display: block;
-    }
-
-    .plan-features {
-      list-style: none;
-      margin: 25px 0;
-      padding: 0;
-      text-align: left;
-    }
-
-    .plan-features li {
-      margin: 12px 0;
-      display: flex;
-      align-items: flex-start;
-    }
-
-    .feature-icon {
-      color: var(--color-accent);
-      margin-right: 10px;
-      font-weight: bold;
-    }
-
-    .plan-cta {
-      display: block;
-      padding: 14px;
-      margin-top: auto;
-      font-weight: 800;
-      text-align: center;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: all 0.3s;
-    }
-
-    .complete-cta {
-      background: var(--color-green-light);
-      color: var(--color-dark);
-    }
-
-    .complete-cta:hover {
-      background: #4de6c5;
-    }
-
-    .basic-cta, .premium-cta {
-      background: transparent;
-      color: var(--color-text-light);
-      border: 1px solid #444;
-    }
-
-    .basic-cta:hover, .premium-cta:hover {
-      background: rgba(100, 255, 218, 0.1);
-      border-color: var(--color-green-light);
-    }
-
-    .payment-info {
-      margin-top: 40px;
-      color: #999;
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .installment-option {
-      font-weight: 600;
-      margin-top: 5px;
-    }
-
-    /* FAQ */
-    .faq-section {
-      padding: 80px 5vw;
-      text-align: center;
-      background-color: var(--color-dark);
-    }
-
-    .faq-title {
-      font-size: 2.4rem;
-      font-weight: 900;
-      margin-bottom: 50px;
-      color: var(--color-text-light);
-    }
-
-    .faq-container {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: left;
-    }
-
-    .faq-item {
-      margin-bottom: 12px;
-      border-radius: 10px;
-      background: #0d0d0d;
-      border: 1px solid rgba(0, 77, 64, 0.3);
-      overflow: hidden;
-    }
-
-    .faq-question {
-      width: 100%;
-      padding: 20px;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: var(--color-text-light);
-      background: none;
-      border: none;
-      text-align: left;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .faq-arrow {
-      transition: transform 0.3s;
-      color: var(--color-green-light);
-    }
-
-    .faq-answer {
-      padding: 0 20px;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease, padding 0.4s ease;
-    }
-
-    .faq-answer p {
-      padding: 0 0 20px;
-      color: #bbb;
-      line-height: 1.6;
-    }
-
-    .faq-item.active .faq-answer {
-      padding: 0 20px 20px;
-    }
-
-    /* CTA Final */
-    .final-cta-section {
-      padding: 0;
-    }
-
-    .cta-background-wrap {
-      background: linear-gradient(135deg, var(--color-green-dark) 0%, var(--color-green-light) 100%);
-      padding: 80px 5vw;
-      color: var(--color-dark);
-    }
-
-    .final-cta-title {
-      font-size: 2.6rem;
-      font-weight: 900;
-      margin-bottom: 20px;
-    }
-
-    .final-cta-subtitle {
-      font-size: 1.2rem;
-      font-weight: 500;
-      margin-bottom: 40px;
-      color: rgba(0, 0, 0, 0.7);
-    }
-
-    .final-cta-button {
-      display: inline-block;
-      padding: 16px 40px;
-      background: var(--color-dark);
-      color: var(--color-green-light);
-      font-weight: 800;
-      font-size: 1.2rem;
-      text-decoration: none;
-      border-radius: 8px;
-      margin-top: 20px;
-      transition: all 0.3s;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .final-cta-button:hover {
-      background: #222;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .final-cta-details {
-      margin-top: 30px;
-      font-size: 0.9rem;
-      color: rgba(0, 0, 0, 0.6);
-    }
-
-    /* Footer */
-    .full-footer {
-      padding: 50px 5vw;
-      text-align: center;
-      color: #888;
-      font-size: 0.9rem;
-    }
-
-    .footer-nav {
-      margin-bottom: 30px;
-    }
-
-    .footer-nav a {
-      color: #aaa;
-      text-decoration: none;
-      margin: 0 12px;
-      font-weight: 600;
-    }
-
-    .footer-nav a:hover {
-      color: var(--color-green-light);
-    }
-
-    .footer-divider {
-      border: none;
-      border-top: 1px solid #222;
-      width: 80%;
-      max-width: 600px;
-      margin: 25px auto;
-    }
-
-    .footer-warning {
-      margin-bottom: 15px;
-      line-height: 1.4;
-      font-size: 0.85rem;
-      opacity: 0.8;
-    }
-
-    .footer-copyright {
-      margin-top: 5px;
-    }
-
-    /* Responsividade */
-    @media (max-width: 900px) {
-      .content-area { flex-direction: column; }
-      .image-side { margin: 40px auto 0; max-width: 500px; margin-left: auto; margin-right: auto; }
-      .model-image { min-height: 400px; }
-      .main-title { font-size: 2.8rem; }
-      .plan-card.popular { transform: none; margin-top: 0; }
-    }
-
-    @media (max-width: 600px) {
-      .main-title { font-size: 2.2rem; }
-      .section-title,
-      .section-title-modules,
-      .section-title-testimonials,
-      .section-title-security,
-      .pricing-intro-title,
-      .why-it-works-title,
-      .faq-title { font-size: 2rem; }
-      .plan-card { padding: 25px 15px; }
-      .price-main { font-size: 2.2rem; }
-      .final-cta-title { font-size: 2rem; }
-      .footer-nav a { display: block; margin: 8px 0; }
-      .footer-nav { display: flex; flex-direction: column; align-items: center; }
-      .modules-grid { grid-template-columns: 1fr; }
-      .benefits-grid, .testimonials-grid, .security-grid { gap: 20px; }
-    }
-  </style>
 </head>
 <body>
-  <div class="container">
-    <header class="header">
-      <span class="logo">Saúde sexual masculina</span>
-    </header>
-
-    <main class="content-area">
-      <div class="text-side">
-        <h1 class="main-title">
-          Recupere a sua <br>
-          <span class="highlight-confidence">confiança.</span> 
-          <span class="highlight-performance">Melhore o</span> <br>
-          <span class="highlight-performance">seu desempenho.</span>
-        </h1>
-        
-        <p class="subtitle">
-          Método prático, discreto e baseado em saúde — resultados em <strong>8 semanas.</strong>
-        </p>
-
-        <p class="features">
-          <strong>Curso Online</strong> • <strong>Orientações médicas</strong> • <strong>Plano de treino, alimentação e exercícios</strong>
-        </p>
-
-        <a href="#" class="cta-button">
-          Inscreva-se Agora — Comece Hoje 
-          <span class="arrow">&rarr;</span>
-        </a>
-
-        <div class="footer-details">
-          <div class="rating">
-            <span class="stars">★★★★★</span> 
-            4.8/5
-          </div>
-          <span class="separator">•</span>
-          <span class="satisfied">+ 5.000 alunos satisfeitos</span>
-          <span class="separator">•</span>
-          <span class="guarantee">Garantia de 14 dias</span>
-        </div>
-      </div>
-
-      <div class="image-side">
-        <div class="model-image"></div>
-      </div>
-    </main>
-
-    <section class="learning-section section">
-      <h2 class="section-title">O que você vai aprender</h2>
-      
-      <div class="cards-container">
-        <div class="card">
-          <div class="icon-box"><span class="card-icon checkmark">✓</span></div>
-          <h3 class="card-title">Plano de Ação Prático</h3>
-          <p class="card-description">
-            Exercícios diários, treinos e rotina estruturada para resultados consistentes.
-          </p>
-        </div>
-        <div class="card">
-          <div class="icon-box"><span class="card-icon medical">⚕️</span></div>
-          <h3 class="card-title">Orientação Médica e Nutricional</h3>
-          <p class="card-description">
-            Dicas seguras e baseadas em saúde para maximizar seu bem-estar.
-          </p>
-        </div>
-        <div class="card">
-          <div class="icon-box"><span class="card-icon mindset">◒</span></div>
-          <h3 class="card-title">Confiança e Mindset</h3>
-          <p class="card-description">
-            Técnicas comportamentais para melhorar intimidade e autoestima.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="modules-section">
-      <div class="top-link">
-        <a href="#" class="view-program-link">
-          Ver programa completo &rarr;
-        </a>
-      </div>
-
-      <h2 class="section-title-modules">
-        Conteúdo do curso — <strong>8 módulos</strong>
-      </h2>
-      <p class="section-subtitle">
-        Em cada módulo: vídeo + PDF para download + checklist prático + exercícios semanais
-      </p>
-
-      <div class="modules-grid">
-        <div class="module-card">
-          <span class="module-number">1</span>
-          <h3 class="module-title">Avaliação e metas</h3>
-          <p class="module-description">Checklist e diário pessoal</p>
-        </div>
-        <div class="module-card">
-          <span class="module-number">2</span>
-          <h3 class="module-title">Anatomia, mitos e verdades</h3>
-          <p class="module-description">Base científica e educação</p>
-        </div>
-        <div class="module-card">
-          <span class="module-number">3</span>
-          <h3 class="module-title">Exercícios práticos</h3>
-          <p class="module-description">Pélvianos, Kegels e alongamentos</p>
-        </div>
-        <div class="module-card">
-          <span class="module-number">4</span>
-          <h3 class="module-title">Nutrição para desempenho</h3>
-          <p class="module-description">Alimentação estratégica</p>
-        </div>
-        <div class="module-card">
-          <span class="module-number">5</span>
-          <h3 class="module-title">Técnicas de respiração</h3>
-          <p class="module-description">Controle da ansiedade</p>
-        </div>
-        <div class="module-card">
-          <span class="module-number">6</span>
-          <h3 class="module-title">Comunicação íntima</h3>
-          <p class="module-description">Relacionamentos saudáveis</p>
-        </div>
-        <div class="module-card">
-          <span class="module-number">7</span>
-          <h3 class="module-title">Casos reais e estudos</h3>
-          <p class="module-description">Depoimentos anônimos</p>
-        </div>
-        <div class="module-card">
-          <span class="module-number">8</span>
-          <h3 class="module-title">Plano personalizado</h3>
-          <p class="module-description">Manutenção de longo prazo</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="why-it-works-section">
-      <h2 class="why-it-works-title">
-        Por que funciona
-      </h2>
-      <p class="why-it-works-subtitle">
-        Método comprovado que já ajudou milhares de homens a recuperar confiança e melhorar qualidade de vida
-      </p>
-    </section>
-    
-    <section class="benefits-section section">
-      <div class="benefits-grid">
-        <div class="benefit-item">
-          <div class="benefit-icon-box"><span class="benefit-icon check">✓</span></div>
-          <h3 class="benefit-title">Resultados medíveis</h3>
-          <p class="benefit-description">
-            Progresso visível em 6-8 semanas com acompanhamento estruturado
-          </p>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon-box"><span class="benefit-icon shield">🛡️</span></div>
-          <h3 class="benefit-title">Plano discreto</h3>
-          <p class="benefit-description">
-            Para fazer em casa, no seu ritmo, com privacidade total
-          </p>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon-box"><span class="benefit-icon users">👥</span></div>
-          <h3 class="benefit-title">Suporte incluído</h3>
-          <p class="benefit-description">
-            Acesso a comunidade privada e suporte por e-mail
-          </p>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon-box"><span class="benefit-icon clock">🕒</span></div>
-          <h3 class="benefit-title">Garantia de 14 dias</h3>
-          <p class="benefit-description">
-            Reembolso total sem perguntas se não estiver satisfeito
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="testimonials-section">
-      <h2 class="section-title-testimonials">
-        O que os alunos dizem
-      </h2>
-
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <img src="https://i.imgur.com/r66l5kK.png" alt="Foto de Carlos M., 34 anos, Maputo" class="avatar" loading="lazy">
-            <div>
-              <p class="reviewer-name">Carlos M.</p>
-              <p class="reviewer-location">34 — Maputo</p>
+    <div class="phone-container">
+        <div class="whatsapp-header">
+            <div class="avatar">MS</div>
+            <div class="contact-info">
+                <div class="contact-name">Marcelo Silva</div>
+                <div class="contact-status">online</div>
             </div>
-          </div>
-          <p class="testimonial-text">
-            "Recuperei a confiança e hoje sinto-me muito melhor. Recomendo a abordagem prática e discreta."
-          </p>
         </div>
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <img src="https://i.imgur.com/L4pP31g.png" alt="Foto de Rui P., 41 anos, Beira" class="avatar" loading="lazy">
-            <div>
-              <p class="reviewer-name">Rui P.</p>
-              <p class="reviewer-location">41 — Beira</p>
+
+```
+    <div class="chat-area">
+        <div class="date-divider">
+            <span class="date-badge">HOJE</span>
+        </div>
+
+        <div class="message received">
+            <div class="message-bubble">
+                <div class="message-text">Cara, recebi o ebook aqui!</div>
+                <div class="message-time">19:34</div>
             </div>
-          </div>
-          <p class="testimonial-text">
-            "As orientações são fáceis de seguir. Em 6 semanas já notei diferença significativa no meu bem-estar."
-          </p>
         </div>
-        <div class="testimonial-card">
-          <div class="testimonial-header">
-            <div class="avatar-placeholder">A</div>
-            <div>
-              <p class="reviewer-name">Anónimo</p>
-              <p class="reviewer-location">Aluno verificado</p>
+
+        <div class="message received">
+            <div class="message-bubble">
+                <div class="message-text">Já comecei a ler e tá sensacional <span class="emoji">🔥</span></div>
+                <div class="message-time">19:34</div>
             </div>
-          </div>
-          <p class="testimonial-text">
-            "Material claro, profissional e sem julgamentos. Exatamente o que eu precisava para começar a mudança."
-          </p>
         </div>
-      </div>
-    </section>
 
-    <section class="security-section">
-      <h2 class="section-title-security">Compra segura e garantia</h2>
-      
-      <div class="security-grid">
-        <div class="security-item">
-          <div class="security-icon-box"><span class="security-icon refresh">↻</span></div>
-          <h3 class="security-title">Garantia de 14 dias</h3>
-          <p class="security-description">Reembolso total se não estiver satisfeito — sem perguntas</p>
+        <div class="message sent">
+            <div class="message-bubble">
+                <div class="message-text">Opa! Que bom que gostou <span class="emoji">😊</span></div>
+                <div class="message-time">19:36 <span class="checkmark">✓✓</span></div>
+            </div>
         </div>
-        <div class="security-item">
-          <div class="security-icon-box"><span class="security-icon lock">🔒</span></div>
-          <h3 class="security-title">Pagamentos seguros</h3>
-          <p class="security-description">Transações protegidas com criptografia SSL</p>
-        </div>
-        <div class="security-item">
-          <div class="security-icon-box"><span class="security-icon privacy">🛡️</span></div>
-          <h3 class="security-title">Privacidade total</h3>
-          <p class="security-description">Seus dados não são divulgados ou compartilhados</p>
-        </div>
-      </div>
-    </section>
-    
-    <section class="pricing-intro-section">
-      <h2 class="pricing-intro-title">Escolha o seu plano</h2>
-      <p class="pricing-intro-subtitle">
-        Invista na sua saúde e bem-estar com garantia total de satisfação
-      </p>
-    </section>
 
-    <section class="pricing-section">
-      <div class="pricing-grid">
-        <div class="plan-card basic">
-          <h3 class="plan-title">Básico</h3>
-          <p class="plan-subtitle">Ideal para começar</p>
-          <div class="plan-price"><span class="price-main">MZN 1.500</span><span class="price-usd">USD $25</span></div>
-          <ul class="plan-features">
-            <li><span class="feature-icon">✓</span> Acesso completo ao curso</li>
-            <li><span class="feature-icon">✓</span> <strong>8 módulos de conteúdo</strong></li>
-            <li><span class="feature-icon">✓</span> PDFs para download</li>
-            <li><span class="feature-icon">✓</span> Checklists práticos</li>
-            <li><span class="feature-icon">✓</span> Exercícios semanais</li>
-          </ul>
-          <a href="#" class="plan-cta basic-cta">Inscrever — Pagar agora</a>
+        <div class="message received">
+            <div class="message-bubble">
+                <div class="message-text">Mano, eu tava meio receoso de comprar sabe</div>
+                <div class="message-time">19:37</div>
+            </div>
         </div>
-        <div class="plan-card complete popular">
-          <div class="popular-badge">Mais Popular</div>
-          <h3 class="plan-title">Completo</h3>
-          <p class="plan-subtitle">Mais escolhido</p>
-          <div class="plan-price"><span class="price-main">MZN 3.000</span><span class="price-usd">USD $55</span></div>
-          <ul class="plan-features">
-            <li><span class="feature-icon">✓</span> Tudo do plano Básico</li>
-            <li><span class="feature-icon">✓</span> Acesso à comunidade privada</li>
-            <li><span class="feature-icon">✓</span> Suporte por e-mail</li>
-            <li><span class="feature-icon">✓</span> <strong>2 consultas rápidas</strong></li>
-            <li><span class="feature-icon">✓</span> Atualizações gratuitas</li>
-          </ul>
-          <a href="#" class="plan-cta complete-cta">Inscrever — Pagar agora</a>
-        </div>
-        <div class="plan-card premium">
-          <h3 class="plan-title">Premium</h3>
-          <p class="plan-subtitle">Acompanhamento personalizado</p>
-          <div class="plan-price"><span class="price-main">MZN 6.000</span><span class="price-usd">USD $110</span></div>
-          <ul class="plan-features">
-            <li><span class="feature-icon">✓</span> Tudo do plano Completo</li>
-            <li><span class="feature-icon">✓</span> <strong>1 consulta personalizada</strong></li>
-            <li><span class="feature-icon">✓</span> Plano individual customizado</li>
-            <li><span class="feature-icon">✓</span> Suporte prioritário</li>
-            <li><span class="feature-icon">✓</span> <strong>Acesso vitalício</strong></li>
-          </ul>
-          <a href="#" class="plan-cta premium-cta">Inscrever — Pagar agora</a>
-        </div>
-      </div>
 
-      <div class="payment-info">
-        <p>Aceita-se M-Pesa • Cartão de Crédito • Transferência Bancária</p>
-        <p class="installment-option">Opção de parcelamento disponível</p>
-      </div>
-    </section>
+        <div class="message received">
+            <div class="message-bubble">
+                <div class="message-text">Mas as informações que tem aí são OURO PURO!</div>
+                <div class="message-time">19:37</div>
+            </div>
+        </div>
 
-    <section class="faq-section">
-      <h2 class="faq-title">Dúvidas comuns</h2>
-      
-      <div class="faq-container">
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Isso é médico?
-            <span class="faq-arrow">↓</span>
-          </button>
-          <div class="faq-answer" role="region" aria-hidden="true">
-            <p>O curso oferece orientações médicas e nutricionais, mas <strong>não substitui uma consulta médica presencial</strong>. É um programa educacional e prático focado em bem-estar e performance, baseado em ciência e acompanhado por profissionais de saúde.</p>
-          </div>
+        <div class="message received">
+            <div class="message-bubble">
+                <div class="message-text">Nunca tinha visto ninguém explicar dessa forma</div>
+                <div class="message-time">19:38</div>
+            </div>
         </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Preciso expor minha identidade?
-            <span class="faq-arrow">↓</span>
-          </button>
-          <div class="faq-answer" role="region" aria-hidden="true">
-            <p>Absolutamente não. O curso é totalmente <strong>discreto</strong> e pode ser feito no conforto da sua casa e no seu ritmo. Seus dados são confidenciais, e mesmo na comunidade privada, o uso de pseudônimos é comum e encorajado para garantir sua <strong>privacidade total</strong>.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Quanto tempo por dia preciso dedicar?
-            <span class="faq-arrow">↓</span>
-          </button>
-          <div class="faq-answer" role="region" aria-hidden="true">
-            <p>O plano é flexível. Os exercícios diários e tarefas levam, em média, <strong>15 a 30 minutos por dia</strong>. O mais importante é a consistência, não a quantidade de tempo.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Existe suporte disponível?
-            <span class="faq-arrow">↓</span>
-          </button>
-          <div class="faq-answer" role="region" aria-hidden="true">
-            <p>Sim. O plano <strong>Completo</strong> e <strong>Premium</strong> incluem acesso a uma comunidade privada e suporte por e-mail para tirar dúvidas e receber orientações.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            Como funciona a garantia?
-            <span class="faq-arrow">↓</span>
-          </button>
-          <div class="faq-answer" role="region" aria-hidden="true">
-            <p>Oferecemos uma <strong>Garantia de 14 dias</strong>. Se por qualquer motivo você não estiver satisfeito com o conteúdo, basta enviar um e-mail dentro do prazo e faremos o reembolso total do valor pago, sem burocracia.</p>
-          </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">
-            O conteúdo é atualizado?
-            <span class="faq-arrow">↓</span>
-          </button>
-          <div class="faq-answer" role="region" aria-hidden="true">
-            <p>Sim. O conteúdo é revisado e atualizado anualmente para garantir que você receba as informações e técnicas mais recentes e baseadas em evidências científicas.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <section class="final-cta-section">
-      <div class="cta-background-wrap">
-        <div class="cta-content">
-          <h2 class="final-cta-title">Está pronto para recuperar sua confiança?</h2>
-          <p class="final-cta-subtitle">Junte-se a milhares de homens que já transformaram suas vidas com nosso método comprovado.</p>
-          <a href="#" class="final-cta-button">Quero Começar Agora &rarr;</a>
-          <div class="final-cta-details">
-            <span>Garantia de 14 dias</span> • 
-            <span>Sem riscos</span> • 
-            <span>Suporte incluído</span>
-          </div>
+        <div class="message received">
+            <div class="message-bubble">
+                <div class="message-text">Principalmente aquela parte sobre alimentação e suplementação natural</div>
+                <div class="message-time">19:38</div>
+            </div>
         </div>
-      </div>
-    </section>
-    
-  </div>
-  
-  <footer class="full-footer">
-    <div class="footer-nav">
-      <a href="#">Sobre</a>
-      <a href="#">Programa</a>
-      <a href="#">Preços</a>
-      <a href="#">FAQ</a>
-      <a href="#">Contato</a>
+
+        <div class="message sent">
+            <div class="message-bubble">
+                <div class="message-text">Sim! Essa parte é muito importante</div>
+                <div class="message-time">19:40 <span class="checkmark">✓✓</span></div>
+            </div>
+        </div>
+
+        <div class="message received">
+            <div class="message-bubble">
+                <div class="message-text">Eu já tava gastando uma grana com suplementos caros achando que ia resolver</div>
+                <div class="message-time">19:41</div>
+            </div>
+        </div>
+
+        <div class="message received">
+            <div class="message-bubble">
+                <div class="message-text">Agora vi que o problema era outro completamente diferente</div>
+                <div class="message-time">19:41</div>
+            </div>
+        </div>
+
+        <div class="message received">
+            <div class="message-bubble">
+                <div class="message-text">Já apliquei 2 das técnicas que você ensina e cara...</div>
+                <div class="message-time">19:42</div>
+            </div>
+        </div>
+
+        <div class="message received">
+            <div class="message-bubble">
+                <div class="message-text">A diferença foi IMEDIATA! Ontem mesmo já senti <span class="emoji">💪</span></div>
+                <div class="message-time">19:42</div>
+            </div>
+        </div>
+
+        <div class="message sent">
+            <div class="message-bubble">
+                <div class="message-text">Que massa! Fico muito feliz pelo resultado <span class="emoji">🙏</span></div>
+                <div class="message-time">19:44 <span class="checkmark">✓✓</span></div>
+            </div>
+        </div>
+
+        <div class="message received">
+            <div class="message-bubble">
+                <div class="message-text">Melhor investimento que fiz esse ano</div>
+                <div class="message-time">19:45</div>
+            </div>
+        </div>
+
+        <div class="message received">
+            <div class="message-bubble">
+                <div class="message-text">Valeu cada centavo! Já salvei aqui pra consultar sempre</div>
+                <div class="message-time">19:45</div>
+            </div>
+        </div>
+
+        <div class="message received">
+            <div class="message-bubble">
+                <div class="message-text">Inclusive já recomendei pra 2 amigos meus que tavam com o mesmo problema</div>
+                <div class="message-time">19:46</div>
+            </div>
+        </div>
+
+        <div class="message sent">
+            <div class="message-bubble">
+                <div class="message-text">Muito obrigado pelo feedback e pela confiança! <span class="emoji">🙌</span></div>
+                <div class="message-time">19:47 <span class="checkmark">✓✓</span></div>
+            </div>
+        </div>
+
+        <div class="message sent">
+            <div class="message-bubble">
+                <div class="message-text">Continue aplicando o conteúdo, os resultados só melhoram!</div>
+                <div class="message-time">19:47 <span class="checkmark">✓✓</span></div>
+            </div>
+        </div>
+
+        <div class="message received">
+            <div class="message-bubble">
+                <div class="message-text">Com certeza! Vlw demais mano <span class="emoji">🔥</span></div>
+                <div class="message-time">19:48</div>
+            </div>
+        </div>
+
     </div>
-    <hr class="footer-divider">
-    <p class="footer-warning">
-      Este curso é educacional e não substitui orientações médicas. Em caso de problemas de saúde, consulte um profissional.
-    </p>
-    <p class="footer-copyright">
-      © 2025 Saúde sexual masculina — Todos os direitos reservados.
-    </p>
-  </footer>
+</div>
+```
 
-  <script>
-    document.querySelectorAll('.faq-question').forEach(button => {
-      button.addEventListener('click', () => {
-        const faqItem = button.closest('.faq-item');
-        const isExpanded = faqItem.classList.contains('active');
-        
-        // Close all others
-        document.querySelectorAll('.faq-item').forEach(item => {
-          if (item !== faqItem) {
-            item.classList.remove('active');
-            item.querySelector('.faq-answer').style.maxHeight = '0';
-            item.querySelector('.faq-answer').setAttribute('aria-hidden', 'true');
-            item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
-          }
-        });
-
-        // Toggle current
-        faqItem.classList.toggle('active', !isExpanded);
-        const answer = faqItem.querySelector('.faq-answer');
-        const arrow = faqItem.querySelector('.faq-arrow');
-        
-        if (!isExpanded) {
-          answer.style.maxHeight = answer.scrollHeight + "px";
-          answer.setAttribute('aria-hidden', 'false');
-          button.setAttribute('aria-expanded', 'true');
-          arrow.style.transform = 'rotate(180deg)';
-        } else {
-          answer.style.maxHeight = "0";
-          answer.setAttribute('aria-hidden', 'true');
-          button.setAttribute('aria-expanded', 'false');
-          arrow.style.transform = 'rotate(0deg)';
-        }
-      });
-    });
-  </script>
 </body>
 </html>
