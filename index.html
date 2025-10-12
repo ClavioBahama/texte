@@ -1,334 +1,560 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Provas Sociais WhatsApp</title>
-<style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        background: #1a1a2e;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        min-height: 100vh;
-        padding: 30px 20px;
-        gap: 30px;
-        flex-wrap: wrap;
-    }
-    .phone-container {
-        width: 100%;
-        max-width: 380px;
-        background: #111b21;
-        overflow: hidden;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-    }
-    .whatsapp-header {
-        background: #202c33;
-        padding: 12px 16px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-    }
-    .avatar {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        font-weight: 600;
-        font-size: 16px;
-    }
-    .avatar1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-    .avatar2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
-    .avatar3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
-    .avatar4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
-    .avatar5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
-    .avatar6 { background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%); }
-    .avatar7 { background: linear-gradient(135deg, #43c6ac 0%, #f8ffae 100%); }
-    .avatar8 { background: linear-gradient(135deg, #36d1dc 0%, #5b86e5 100%); }
-    .avatar9 { background: linear-gradient(135deg, #ee9ca7 0%, #ffdde1 100%); }
-    .avatar10 { background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%); }
-    .avatar11 { background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%); }
-    .avatar12 { background: linear-gradient(135deg, #fcb045 0%, #fd1d1d 100%); }
-    .avatar13 { background: linear-gradient(135deg, #c2e59c 0%, #64b3f4 100%); }
-    .contact-info { flex: 1; }
-    .contact-name { color: #e9edef; font-size: 16px; font-weight: 500; }
-    .contact-status { color: #8696a0; font-size: 12px; }
-    .chat-area {
-        background: #0a1014;
-        padding: 16px 12px;
-        max-height: 540px;
-        overflow-y: auto;
-        background-image: repeating-linear-gradient(0deg, transparent, transparent 35px, rgba(255,255,255,.02) 35px, rgba(255,255,255,.02) 36px);
-    }
-    .message { margin-bottom: 6px; display: flex; }
-    .message.sent { justify-content: flex-end; }
-    .message-bubble {
-        max-width: 82%;
-        padding: 7px 10px;
-        border-radius: 8px;
-    }
-    .message.received .message-bubble { background: #202c33; color: #e9edef; border-radius: 0 8px 8px 8px; }
-    .message.sent .message-bubble { background: #005c4b; color: #e9edef; border-radius: 8px 0 8px 8px; }
-    .message-text { font-size: 14px; line-height: 1.4; margin-bottom: 3px; }
-    .message-time { font-size: 10px; color: #8696a0; text-align: right; display: flex; align-items: center; justify-content: flex-end; gap: 3px; }
-    .checkmark { color: #53bdeb; font-size: 14px; }
-    .date-divider { text-align: center; margin: 12px 0; }
-    .date-badge { background: #202c33; color: #8696a0; padding: 5px 10px; border-radius: 8px; font-size: 11px; display: inline-block; }
-    .emoji { font-size: 16px; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provas Sociais WhatsApp - Versão Estendida</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #1a1a2e;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 30px 20px;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .phone-container {
+            width: 100%;
+            max-width: 380px;
+            background: #111b21;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+        }
+
+        .status-bar {
+            background: #000;
+            padding: 6px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14px;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .status-left {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .status-right {
+            /* Removida a informação da bateria e sinal para maior realismo */
+            font-size: 16px;
+            gap: 8px;
+        }
+
+        .whatsapp-header {
+            background: #202c33;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        /* Novas cores de avatar para as conversas extras */
+        .avatar1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); } /* RC */
+        .avatar2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); } /* TM */
+        .avatar3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); } /* FA */
+        .avatar4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); } /* LR */
+        .avatar5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); } /* GA */
+        .avatar6 { background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%); } /* DM */
+        .avatar7 { background: linear-gradient(135deg, #ff9a8b 0%, #ff6a88 100%); } /* JP */
+        .avatar8 { background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%); } /* AA */
+        .avatar9 { background: linear-gradient(135deg, #c79081 0%, #dfa579 100%); } /* PS */
+        .avatar10 { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); } /* VM */
+        .avatar11 { background: linear-gradient(135deg, #00c6fb 0%, #005bea 100%); } /* JS (EN) */
+        .avatar12 { background: linear-gradient(135deg, #f6d242 0%, #ff4e00 100%); } /* MK (EN) */
+        .avatar13 { background: linear-gradient(135deg, #ff0844 0%, #ffb199 100%); } /* AM (EN) */
+
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-name {
+            color: #e9edef;
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .contact-status {
+            color: #8696a0;
+            font-size: 12px;
+        }
+
+        .chat-area {
+            background: #0a1014;
+            padding: 16px 12px;
+            max-height: 540px;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 35px, rgba(255,255,255,.02) 35px, rgba(255,255,255,.02) 36px);
+            overflow-y: auto; /* Adicionado para que a área de chat possa rolar se for muito longa */
+        }
+
+        .message {
+            margin-bottom: 6px;
+            display: flex;
+        }
+
+        .message.sent {
+            justify-content: flex-end;
+        }
+
+        .message-bubble {
+            max-width: 82%;
+            padding: 7px 10px;
+            border-radius: 8px;
+            position: relative; /* Adicionado para o 'bico' de balão */
+        }
+        
+        /* Adicionando bicos (não foi pedido, mas torna mais realista) */
+        .message.received .message-bubble::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -8px; /* Ajuste para o bico */
+            border-top: 6px solid #202c33;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            width: 0;
+            height: 0;
+            transform: rotate(-45deg);
+        }
+
+        .message.sent .message-bubble::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -8px; /* Ajuste para o bico */
+            border-top: 6px solid #005c4b;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            width: 0;
+            height: 0;
+            transform: rotate(45deg);
+        }
+        
+        .message.received .message-bubble {
+            background: #202c33;
+            color: #e9edef;
+            border-radius: 0 8px 8px 8px;
+        }
+
+        .message.sent .message-bubble {
+            background: #005c4b;
+            color: #e9edef;
+            border-radius: 8px 0 8px 8px;
+        }
+
+        .message-text {
+            font-size: 14px;
+            line-height: 1.4;
+            margin-bottom: 3px;
+        }
+
+        .message-time {
+            font-size: 10px;
+            color: #8696a0;
+            text-align: right;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 3px;
+            line-height: 1; /* Para evitar que a hora 'empurre' a bolha para baixo */
+        }
+
+        .checkmark {
+            color: #53bdeb;
+            font-size: 14px;
+        }
+
+        .date-divider {
+            text-align: center;
+            margin: 12px 0;
+        }
+
+        .date-badge {
+            background: #202c33;
+            color: #8696a0;
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 11px;
+            display: inline-block;
+        }
+
+        .emoji {
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body>
+    
+    <div class="phone-container">
+        <div class="status-bar">
+            <div class="status-left"><span>21:34</span></div>
+            <div class="status-right"><span>...</span></div>
+        </div>
+        <div class="whatsapp-header">
+            <div class="avatar avatar1">RC</div>
+            <div class="contact-info">
+                <div class="contact-name">Ricardo Costa</div>
+                <div class="contact-status">online</div>
+            </div>
+        </div>
+        <div class="chat-area">
+            <div class="date-divider"><span class="date-badge">HOJE</span></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Cara, preciso te agradecer de verdade!</div><div class="message-time">16:23</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Comecei o programa tem 2 semanas e mudou TUDO</div><div class="message-time">16:23</div></div></div>
+            <div class="message sent"><div class="message-bubble"><div class="message-text">Que bom mano! Conta aí</div><div class="message-time">16:25 <span class="checkmark">✓✓</span></div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Eu tava há 8 meses com problema de ereção. Não conseguia manter firme, sabia?</div><div class="message-time">16:26</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Pior que isso era a ejaculação precoce. Nem 2 minutos eu durava, era humilhante <span class="emoji">😞</span></div><div class="message-time">16:26</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Minha esposa não falava nada mas eu via a frustração dela</div><div class="message-time">16:27</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Eu me sentia um fracasso como homem, de verdade</div><div class="message-time">16:27</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Já tinha gastado mais de R$3.000 com urologista e remédios caros</div><div class="message-time">16:28</div></div></div>
+            <div class="message sent"><div class="message-bubble"><div class="message-text">Entendo... e agora?</div><div class="message-time">16:29 <span class="checkmark">✓✓</span></div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Mano, é OUTRO NÍVEL! <span class="emoji">🔥</span></div><div class="message-time">16:30</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Ereção firme como pedra, duro 15-20min tranquilo e ela fica LOUCA</div><div class="message-time">16:30</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Ontem foi a 3ª vez seguida. Ela não acreditou kkkkk</div><div class="message-time">16:31</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Ela até chorou de felicidade depois, disse que eu voltei a ser o homem que ela conheceu</div><div class="message-time">16:31</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Melhor investimento que já fiz! Valeu cada centavo <span class="emoji">🙏</span></div><div class="message-time">16:32</div></div></div>
+        </div>
+    </div>
 
-<!-- CONVERSA 1 -->
-<div class="phone-container">
-    <div class="whatsapp-header">
-        <div class="avatar avatar1">RC</div>
-        <div class="contact-info">
-            <div class="contact-name">Ricardo Costa</div>
-            <div class="contact-status">online</div>
+    <div class="phone-container">
+        <div class="status-bar">
+            <div class="status-left"><span>19:47</span></div>
+            <div class="status-right"><span>...</span></div>
+        </div>
+        <div class="whatsapp-header">
+            <div class="avatar avatar2">TM</div>
+            <div class="contact-info">
+                <div class="contact-name">Thiago Mendes</div>
+                <div class="contact-status">online</div>
+            </div>
+        </div>
+        <div class="chat-area">
+            <div class="date-divider"><span class="date-badge">HOJE</span></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Irmão, você salvou meu casamento! Sério mesmo</div><div class="message-time">14:12</div></div></div>
+            <div class="message sent"><div class="message-bubble"><div class="message-text">Como assim mano? <span class="emoji">😮</span></div><div class="message-time">14:14 <span class="checkmark">✓✓</span></div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Eu tinha zero libido cara, não sentia vontade de NADA</div><div class="message-time">14:15</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Quando ia ter relação, perdia a ereção no meio. Broxa total</div><div class="message-time">14:15</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Minha mina já tava achando que eu não gostava mais dela</div><div class="message-time">14:16</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Ela chegou a perguntar se eu tinha outra. Quase nos separamos por causa disso</div><div class="message-time">14:16</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Fui no médico, fiz exame, tava tudo ok. Ninguém sabia o problema</div><div class="message-time">14:17</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Comecei o programa tem 3 semanas...</div><div class="message-time">14:18</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Voltou TUDO! Libido nas alturas, ereção forte e duradoura <span class="emoji">💪</span></div><div class="message-time">14:18</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Final de semana transamos 5x! CINCO! Eu não fazia isso nem com 20 anos</div><div class="message-time">14:19</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Ela tá radiante, eu me sentindo garanhão de novo <span class="emoji">🔥</span></div><div class="message-time">14:19</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Ontem ela me disse: "voltou meu macho de verdade" kkkkk</div><div class="message-time">14:20</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Valeu MUITO a pena! Programa sensacional</div><div class="message-time">14:20</div></div></div>
         </div>
     </div>
-    <div class="chat-area">
-        <div class="date-divider"><span class="date-badge">HOJE</span></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Cara, preciso te agradecer de verdade!</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Comecei o programa tem 2 semanas e mudou TUDO</div></div></div>
-        <div class="message sent"><div class="message-bubble"><div class="message-text">Que bom mano! Conta aí</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Eu tava há 8 meses com problema de ereção...</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Pior que ejaculação precoce. Nem 2 minutos durava 😞</div></div></div>
-        <div class="message sent"><div class="message-bubble"><div class="message-text">Entendo... e agora?</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Mano, é OUTRO NÍVEL! 🔥</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Ereção firme como pedra, 15-20min tranquilo</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Minha esposa ficou em êxtase, disse que voltei a ser o homem dela</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Melhor investimento da minha vida 🙏</div></div></div>
-    </div>
-</div>
 
-<!-- CONVERSA 2 -->
-<div class="phone-container">
-    <div class="whatsapp-header">
-        <div class="avatar avatar2">TM</div>
-        <div class="contact-info">
-            <div class="contact-name">Thiago Mendes</div>
-            <div class="contact-status">online</div>
+    <div class="phone-container">
+        <div class="status-bar">
+            <div class="status-left"><span>22:15</span></div>
+            <div class="status-right"><span>...</span></div>
+        </div>
+        <div class="whatsapp-header">
+            <div class="avatar avatar3">FA</div>
+            <div class="contact-info">
+                <div class="contact-name">Felipe Augusto</div>
+                <div class="contact-status">online</div>
+            </div>
+        </div>
+        <div class="chat-area">
+            <div class="date-divider"><span class="date-badge">HOJE</span></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Mano do céu! Que programa fod@ é esse? <span class="emoji">🤯</span></div><div class="message-time">20:45</div></div></div>
+            <div class="message sent"><div class="message-bubble"><div class="message-text">Kkkkk tá dando certo então?</div><div class="message-time">20:47 <span class="checkmark">✓✓</span></div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Cara eu tinha ejaculação precoce desde sempre. Coisa de 1 minuto no máximo</div><div class="message-time">20:48</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Terminei alguns namoros por causa disso. As minas ficavam insatisfeitas</div><div class="message-time">20:48</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Uma vez uma mina até riu de mim. Foi a pior humilhação da minha vida</div><div class="message-time">20:49</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Eu evitava até sair com mulher de tanta vergonha</div><div class="message-time">20:49</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Já tinha tentado TUDO: pomada, spray, remédio</div><div class="message-time">20:50</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Nada funcionava de verdade</div><div class="message-time">20:50</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Apliquei as técnicas do programa e irmão...</div><div class="message-time">20:51</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">HOJE durei 25 MINUTOS! EU! 25 MINUTOS! <span class="emoji">😱</span></div><div class="message-time">20:51</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Controlo TOTAL da ejaculação agora. Inacreditável!</div><div class="message-time">20:52</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Minha namorada tá achando que fiz cirurgia kkkkk</div><div class="message-time">20:52</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Ela disse que nunca transou tão bem na vida dela</div><div class="message-time">20:53</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Mudou minha vida! Obrigado sério <span class="emoji">🙏</span></div><div class="message-time">20:53</div></div></div>
         </div>
     </div>
-    <div class="chat-area">
-        <div class="date-divider"><span class="date-badge">HOJE</span></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Irmão, você salvou meu casamento! 😮</div></div></div>
-        <div class="message sent"><div class="message-bubble"><div class="message-text">Como assim mano?</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Zero libido, broxa total, minha mina achando que não gostava mais de mim</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Comecei o programa há 3 semanas...</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Voltou TUDO! Libido nas alturas, ereção forte e duradoura 💪</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Final de semana transamos 5x! 🔥</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Ela disse: "voltou meu macho de verdade" kkkkk</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Programa sensacional, valeu MUITO</div></div></div>
-    </div>
-</div>
 
-<!-- CONVERSA 3 -->
-<div class="phone-container">
-    <div class="whatsapp-header">
-        <div class="avatar avatar3">FA</div>
-        <div class="contact-info">
-            <div class="contact-name">Felipe Augusto</div>
-            <div class="contact-status">online</div>
+    <div class="phone-container">
+        <div class="status-bar">
+            <div class="status-left"><span>15:28</span></div>
+            <div class="status-right"><span>...</span></div>
+        </div>
+        <div class="whatsapp-header">
+            <div class="avatar avatar4">LR</div>
+            <div class="contact-info">
+                <div class="contact-name">Lucas Rodrigues</div>
+                <div class="contact-status">online</div>
+            </div>
+        </div>
+        <div class="chat-area">
+            <div class="date-divider"><span class="date-badge">HOJE</span></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Cara... não acredito no que aconteceu comigo</div><div class="message-time">11:15</div></div></div>
+            <div class="message sent"><div class="message-bubble"><div class="message-text">Fala mano, o que foi?</div><div class="message-time">11:17 <span class="checkmark">✓✓</span></div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Tenho 42 anos e desde os 38 a performance caiu muito</div><div class="message-time">11:18</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Demorava pra ficar ereto, quando ficava não ficava 100% duro</div><div class="message-time">11:18</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Perdia no meio do ato. Minha autoestima foi pro fundo do poço</div><div class="message-time">11:19</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Comecei a evitar intimidade com minha esposa. Inventava desculpas</div><div class="message-time">11:19</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Ela percebeu e ficou magoada, achava que era desinteresse</div><div class="message-time">11:20</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Comecei o programa sem muita esperança, achei que era coisa da idade</div><div class="message-time">11:21</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">10 dias depois já senti diferença gigante</div><div class="message-time">11:21</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Hoje, 4 semanas depois: ereções potentes como tinha aos 25 anos <span class="emoji">🔥</span></div><div class="message-time">11:22</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Ontem transamos 2x. NA MESMA NOITE! Com 42 anos!</div><div class="message-time">11:22</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Minha esposa tá em êxtase. Disse que parece lua de mel de novo</div><div class="message-time">11:23</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Recuperei minha confiança e meu casamento. Gratidão eterna <span class="emoji">🙏</span></div><div class="message-time">11:24</div></div></div>
         </div>
     </div>
-    <div class="chat-area">
-        <div class="date-divider"><span class="date-badge">HOJE</span></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Mano do céu! Que programa fod@ é esse? 🤯</div></div></div>
-        <div class="message sent"><div class="message-bubble"><div class="message-text">Kkkkk tá dando certo então?</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Ejaculação precoce desde sempre, 1 minuto no máximo</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Hoje durei 25 MINUTOS! 😱</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Minha namorada tá achando que fiz cirurgia kkkkk</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Mudou minha vida! Obrigado 🙏</div></div></div>
-        <div class="message sent"><div class="message-bubble"><div class="message-text">Caramba, sensacional mesmo!</div></div></div>
-    </div>
-</div>
 
-<!-- CONVERSA 4 -->
-<div class="phone-container">
-    <div class="whatsapp-header">
-        <div class="avatar avatar4">LR</div>
-        <div class="contact-info">
-            <div class="contact-name">Lucas Rodrigues</div>
-            <div class="contact-status">online</div>
+    <div class="phone-container">
+        <div class="status-bar">
+            <div class="status-left"><span>18:52</span></div>
+            <div class="status-right"><span>...</span></div>
+        </div>
+        <div class="whatsapp-header">
+            <div class="avatar avatar5">GA</div>
+            <div class="contact-info">
+                <div class="contact-name">Gustavo Almeida</div>
+                <div class="contact-status">online</div>
+            </div>
+        </div>
+        <div class="chat-area">
+            <div class="date-divider"><span class="date-badge">HOJE</span></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Bro, esse programa é VIDA! Obrigado demais</div><div class="message-time">17:30</div></div></div>
+            <div class="message sent"><div class="message-bubble"><div class="message-text">Eae! Deu resultado então? <span class="emoji">😊</span></div><div class="message-time">17:32 <span class="checkmark">✓✓</span></div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Cara, eu tinha ejaculação precoce E disfunção erétil. Os dois juntos!</div><div class="message-time">17:33</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Quando conseguia manter a ereção, durava 30 segundos. LITERAL</div><div class="message-time">17:33</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Minha namorada tentava ser compreensiva mas eu via que ela não tava satisfeita</div><div class="message-time">17:34</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Começamos a brigar muito, eu ficava irritado e frustrado o tempo todo</div><div class="message-time">17:34</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Já tava considerando terminar o relacionamento por causa disso</div><div class="message-time">17:35</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Decidi dar uma última chance e comprei o programa</div><div class="message-time">17:36</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Na primeira semana já melhorou 50%</div><div class="message-time">17:36</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Hoje, 3 semanas depois: CURADO completamente! <span class="emoji">🎉</span></div><div class="message-time">17:37</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Ereção forte como rocha e duro 20 minutos fácil</div><div class="message-time">17:37</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Ela não para de me elogiar. Disse que é o melhor sexo da vida dela</div><div class="message-time">17:38</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Nosso relacionamento virou outro. Voltamos a nos amar de verdade</div><div class="message-time">17:38</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Você me salvou mano! Obrigado do fundo do coração <span class="emoji">❤️</span></div><div class="message-time">17:39</div></div></div>
         </div>
     </div>
-    <div class="chat-area">
-        <div class="date-divider"><span class="date-badge">HOJE</span></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Cara... não acredito no que aconteceu comigo</div></div></div>
-        <div class="message sent"><div class="message-bubble"><div class="message-text">Fala mano, o que foi?</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Tenho 42 anos e a performance caiu muito desde os 38</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Hoje, 4 semanas depois: ereções potentes como aos 25 anos 🔥</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Minha esposa tá em êxtase. Gratidão eterna 🙏</div></div></div>
+    
+    <div class="phone-container">
+        <div class="status-bar">
+            <div class="status-left"><span>17:05</span></div>
+            <div class="status-right"><span>...</span></div>
+        </div>
+        <div class="whatsapp-header">
+            <div class="avatar avatar6">DM</div>
+            <div class="contact-info">
+                <div class="contact-name">Daniel Marques</div>
+                <div class="contact-status">visto por último hoje às 15:00</div>
+            </div>
+        </div>
+        <div class="chat-area">
+            <div class="date-divider"><span class="date-badge">HOJE</span></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Ainda tô chocado com o resultado, sério</div><div class="message-time">12:35</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Minha libido tinha morrido depois dos 40. Era uma vez a cada 15 dias, na base do esforço</div><div class="message-time">12:35</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Minha esposa ficava triste, achando que eu tinha perdido o interesse nela <span class="emoji">😔</span></div><div class="message-time">12:36</div></div></div>
+            <div class="message sent"><div class="message-bubble"><div class="message-text">Que situação complicada! Como foi a virada?</div><div class="message-time">12:37 <span class="checkmark">✓✓</span></div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Fiz a primeira semana do programa focado...</div><div class="message-time">12:38</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Mano, libido voltou com tudo! Tivemos 4x essa semana. Ela tá rindo à toa!</div><div class="message-time">12:38</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Ereção voltou a ser forte de manhã. Tinha esquecido como era isso!</div><div class="message-time">12:39</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Parece que voltei no tempo. Recomendo pra todo mundo</div><div class="message-time">12:39</div></div></div>
+        </div>
     </div>
-</div>
 
-<!-- CONVERSA 5 -->
-<div class="phone-container">
-    <div class="whatsapp-header">
-        <div class="avatar avatar5">GA</div>
-        <div class="contact-info">
-            <div class="contact-name">Gustavo Almeida</div>
-            <div class="contact-status">online</div>
+    <div class="phone-container">
+        <div class="status-bar">
+            <div class="status-left"><span>14:30</span></div>
+            <div class="status-right"><span>...</span></div>
+        </div>
+        <div class="whatsapp-header">
+            <div class="avatar avatar7">JP</div>
+            <div class="contact-info">
+                <div class="contact-name">João Paulo</div>
+                <div class="contact-status">online</div>
+            </div>
+        </div>
+        <div class="chat-area">
+            <div class="date-divider"><span class="date-badge">HOJE</span></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Meu problema era só a duração. 1 a 3 minutos e já era</div><div class="message-time">13:50</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Era frustrante. Ficava ansioso antes de começar, o que piorava tudo</div><div class="message-time">13:51</div></div></div>
+            <div class="message sent"><div class="message-bubble"><div class="message-text">A ansiedade é a pior parte mesmo. E como está agora?</div><div class="message-time">13:52 <span class="checkmark">✓✓</span></div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Absurdo! Na terceira semana, já tava batendo 18 minutos fácil</div><div class="message-time">13:53</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Sinto que tenho o controle total, e a ansiedade sumiu. É só prazer</div><div class="message-time">13:53</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Minha parceira ficou maluca, disse que o jeito que eu controlo agora é sexy kkkk</div><div class="message-time">13:54</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Muito obrigado por esse programa, valeu a pena cada real! <span class="emoji">🚀</span></div><div class="message-time">13:54</div></div></div>
         </div>
     </div>
-    <div class="chat-area">
-        <div class="date-divider"><span class="date-badge">HOJE</span></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Bro, esse programa é VIDA! Obrigado demais</div></div></div>
-        <div class="message sent"><div class="message-bubble"><div class="message-text">Eae! Deu resultado então? 😊</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Hoje, 3 semanas depois: CURADO completamente! 🎉</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Minha energia voltou, libido nas alturas</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Nunca imaginei que ia sentir isso de novo 😍</div></div></div>
-    </div>
-</div>
-<!-- CONVERSA 6 -->
-<div class="phone-container">
-    <div class="whatsapp-header">
-        <div class="avatar avatar6">MB</div>
-        <div class="contact-info">
-            <div class="contact-name">Matheus Barros</div>
-            <div class="contact-status">online</div>
-        </div>
-    </div>
-    <div class="chat-area">
-        <div class="date-divider"><span class="date-badge">HOJE</span></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Não sei como agradecer, mano! Minha relação melhorou demais</div></div></div>
-        <div class="message sent"><div class="message-bubble"><div class="message-text">Que bom! Me conta os detalhes</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Ereção firme, dura mais de 20 minutos sem parar</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Minha namorada tá impressionada 😍</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Valeu mesmo, esse programa mudou minha vida!</div></div></div>
-    </div>
-</div>
 
-<!-- CONVERSA 7 -->
-<div class="phone-container">
-    <div class="whatsapp-header">
-        <div class="avatar avatar7">RC</div>
-        <div class="contact-info">
-            <div class="contact-name">Rafael Cunha</div>
-            <div class="contact-status">online</div>
+    <div class="phone-container">
+        <div class="status-bar">
+            <div class="status-left"><span>09:55</span></div>
+            <div class="status-right"><span>...</span></div>
+        </div>
+        <div class="whatsapp-header">
+            <div class="avatar avatar8">AA</div>
+            <div class="contact-info">
+                <div class="contact-name">Antonio Alves</div>
+                <div class="contact-status">digitando...</div>
+            </div>
+        </div>
+        <div class="chat-area">
+            <div class="date-divider"><span class="date-badge">HOJE</span></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Bom dia! Acabei de mandar o print do meu resultado.</div><div class="message-time">09:10</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Tinha disfunção erétil há mais de um ano, totalmente desanimado. Tive até que parar de namorar <span class="emoji">😩</span></div><div class="message-time">09:11</div></div></div>
+            <div class="message sent"><div class="message-bubble"><div class="message-text">E o que o programa fez por você?</div><div class="message-time">09:12 <span class="checkmark">✓✓</span></div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Mano, em 15 dias, a ereção voltou a ser espontânea. E dura!</div><div class="message-time">09:14</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Ontem saí com uma garota e foi SUCESSO. Fiquei 100% duro a noite toda.</div><div class="message-time">09:14</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Tinha me esquecido do que é ter essa confiança. Agradeço demais por essa mudança!</div><div class="message-time">09:15</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">A confiança está lá em cima! Tô pronto pra namorar de novo! <span class="emoji">😎</span></div><div class="message-time">09:15</div></div></div>
         </div>
     </div>
-    <div class="chat-area">
-        <div class="date-divider"><span class="date-badge">HOJE</span></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Mano, achei que nunca mais teria ereção como antes</div></div></div>
-        <div class="message sent"><div class="message-bubble"><div class="message-text">Sério? E agora?</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Hoje tô firme e duradouro, minha autoestima voltou 🔥</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Minha esposa não acredita, disse que eu tô novo de novo 😄</div></div></div>
-    </div>
-</div>
 
-<!-- CONVERSA 8 -->
-<div class="phone-container">
-    <div class="whatsapp-header">
-        <div class="avatar avatar8">JF</div>
-        <div class="contact-info">
-            <div class="contact-name">João Farias</div>
-            <div class="contact-status">online</div>
+    <div class="phone-container">
+        <div class="status-bar">
+            <div class="status-left"><span>16:10</span></div>
+            <div class="status-right"><span>...</span></div>
+        </div>
+        <div class="whatsapp-header">
+            <div class="avatar avatar9">PS</div>
+            <div class="contact-info">
+                <div class="contact-name">Paulo Sergio</div>
+                <div class="contact-status">online</div>
+            </div>
+        </div>
+        <div class="chat-area">
+            <div class="date-divider"><span class="date-badge">ONTEM</span></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">O programa é simples mas é a coisa mais eficaz que já usei!</div><div class="message-time">15:40</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Gastava dinheiro com pílula azul pra ter 15 minutos de alegria</div><div class="message-time">15:40</div></div></div>
+            <div class="message sent"><div class="message-bubble"><div class="message-text">Que bom que deu um jeito natural!</div><div class="message-time">15:42 <span class="checkmark">✓✓</span></div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Agora é só treino e técnica! Durei 30 minutos na última vez e sem remédio nenhum!</div><div class="message-time">15:43</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Minha namorada parou de me perguntar se "tá tudo bem" no meio do ato kkkk</div><div class="message-time">15:43</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Ganhei confiança e tô mais feliz no relacionamento. Recomendo pra todos os irmãos <span class="emoji">👊</span></div><div class="message-time">15:44</div></div></div>
         </div>
     </div>
-    <div class="chat-area">
-        <div class="date-divider"><span class="date-badge">HOJE</span></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Nunca mais pensei que conseguiria durar mais que 1 minuto</div></div></div>
-        <div class="message sent"><div class="message-bubble"><div class="message-text">E agora?</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Hoje consegui 20 minutos fácil 😎</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Minha namorada tá em choque 😂</div></div></div>
-    </div>
-</div>
 
-<!-- CONVERSA 9 -->
-<div class="phone-container">
-    <div class="whatsapp-header">
-        <div class="avatar avatar9">AL</div>
-        <div class="contact-info">
-            <div class="contact-name">André Lopes</div>
-            <div class="contact-status">online</div>
+    <div class="phone-container">
+        <div class="status-bar">
+            <div class="status-left"><span>23:18</span></div>
+            <div class="status-right"><span>...</span></div>
+        </div>
+        <div class="whatsapp-header">
+            <div class="avatar avatar10">VM</div>
+            <div class="contact-info">
+                <div class="contact-name">Vitor Moreira</div>
+                <div class="contact-status">online</div>
+            </div>
+        </div>
+        <div class="chat-area">
+            <div class="date-divider"><span class="date-badge">HOJE</span></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Rapaz, eu achei que era golpe quando comprei, mas a necessidade era grande.</div><div class="message-time">22:05</div></div></div>
+            <div class="message sent"><div class="message-bubble"><div class="message-text">Entendo a desconfiança, mas fico feliz que tenha funcionado!</div><div class="message-time">22:07 <span class="checkmark">✓✓</span></div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Meu problema era ereção flácida e ejaculação super rápida. Era vexame total.</div><div class="message-time">22:08</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Três semanas... e a firmeza é outra. Parece um tronco.</div><div class="message-time">22:08</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">O tempo de duração dobrou. E isso é só o começo.</div><div class="message-time">22:09</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">O melhor é a minha parceira. Ela me deu um abraço e disse que me ama. Isso sim é o grande prêmio. <span class="emoji">❤️</span></div><div class="message-time">22:09</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Obrigado por me dar de volta a alegria de viver.</div><div class="message-time">22:10</div></div></div>
         </div>
     </div>
-    <div class="chat-area">
-        <div class="date-divider"><span class="date-badge">HOJE</span></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Cara, minhas ereções voltaram como antes</div></div></div>
-        <div class="message sent"><div class="message-bubble"><div class="message-text">Nossa, que ótimo!</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">E a confiança voltou, minha esposa tá super feliz ❤️</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Não tinha noção de quanto isso afetava minha vida</div></div></div>
-    </div>
-</div>
 
-<!-- CONVERSA 10 -->
-<div class="phone-container">
-    <div class="whatsapp-header">
-        <div class="avatar avatar10">RC</div>
-        <div class="contact-info">
-            <div class="contact-name">Rodrigo Castro</div>
-            <div class="contact-status">online</div>
+    <div class="phone-container">
+        <div class="status-bar">
+            <div class="status-left"><span>10:20</span></div>
+            <div class="status-right"><span>...</span></div>
+        </div>
+        <div class="whatsapp-header">
+            <div class="avatar avatar11">JS</div>
+            <div class="contact-info">
+                <div class="contact-name">John Smith</div>
+                <div class="contact-status">online</div>
+            </div>
+        </div>
+        <div class="chat-area">
+            <div class="date-divider"><span class="date-badge">TODAY</span></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Man, I have to tell you, this program is insane.</div><div class="message-time">09:30</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">My ED was getting really bad. Couldn't get fully hard and would lose it mid-session.</div><div class="message-time">09:31</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">It was making me avoid intimacy with my wife.</div><div class="message-time">09:31</div></div></div>
+            <div class="message sent"><div class="message-bubble"><div class="message-text">Glad you reached out! What was the turning point?</div><div class="message-time">09:33 <span class="checkmark">✓✓</span></div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">After 2 weeks, I'm getting rock hard again, like I was in my twenties <span class="emoji">💪</span></div><div class="message-time">09:34</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">She noticed immediately! We had the best sex in years last night. She was so happy she cried.</div><div class="message-time">09:34</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Seriously life-changing stuff. Thanks a million! <span class="emoji">🙌</span></div><div class="message-time">09:35</div></div></div>
         </div>
     </div>
-    <div class="chat-area">
-        <div class="date-divider"><span class="date-badge">HOJE</span></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Nunca pensei que fosse resolver meus problemas de performance</div></div></div>
-        <div class="message sent"><div class="message-bubble"><div class="message-text">E deu certo?</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Sim! Hoje minha vida sexual tá 100% 🔥</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Minha namorada nem acredita 😍</div></div></div>
-    </div>
-</div>
 
-<!-- CONVERSA 11 (INGLÊS) -->
-<div class="phone-container">
-    <div class="whatsapp-header">
-        <div class="avatar avatar11">JS</div>
-        <div class="contact-info">
-            <div class="contact-name">John Smith</div>
-            <div class="contact-status">online</div>
+    <div class="phone-container">
+        <div class="status-bar">
+            <div class="status-left"><span>13:45</span></div>
+            <div class="status-right"><span>...</span></div>
+        </div>
+        <div class="whatsapp-header">
+            <div class="avatar avatar12">MK</div>
+            <div class="contact-info">
+                <div class="contact-name">Mark Keller</div>
+                <div class="contact-status">typing...</div>
+            </div>
+        </div>
+        <div class="chat-area">
+            <div class="date-divider"><span class="date-badge">TODAY</span></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">This program fixed my premature ejaculation problem completely.</div><div class="message-time">12:55</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">I used to last 60 seconds max. It was embarrassing and ruined my self-esteem.</div><div class="message-time">12:56</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">I tried all the sprays and creams, nothing worked consistently.</div><div class="message-time">12:56</div></div></div>
+            <div class="message sent"><div class="message-bubble"><div class="message-text">That's amazing to hear! How long are you lasting now?</div><div class="message-time">12:58 <span class="checkmark">✓✓</span></div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Last night? 20 MINUTES! I had total control. I couldn't believe it was me. <span class="emoji">🤯</span></div><div class="message-time">12:59</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">My girlfriend is over the moon. She keeps asking what my secret is, lol.</div><div class="message-time">12:59</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Thanks for giving me my confidence back. Best money spent!</div><div class="message-time">01:00</div></div></div>
         </div>
     </div>
-    <div class="chat-area">
-        <div class="date-divider"><span class="date-badge">TODAY</span></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Man, this program is amazing!</div></div></div>
-        <div class="message sent"><div class="message-bubble"><div class="message-text">Really? Tell me more!</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">I used to last 1 minute, now 25+ minutes 💪</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">My girlfriend is thrilled 😱</div></div></div>
-    </div>
-</div>
 
-<!-- CONVERSA 12 (INGLÊS) -->
-<div class="phone-container">
-    <div class="whatsapp-header">
-        <div class="avatar avatar12">MW</div>
-        <div class="contact-info">
-            <div class="contact-name">Michael White</div>
-            <div class="contact-status">online</div>
+    <div class="phone-container">
+        <div class="status-bar">
+            <div class="status-left"><span>20:10</span></div>
+            <div class="status-right"><span>...</span></div>
+        </div>
+        <div class="whatsapp-header">
+            <div class="avatar avatar13">AM</div>
+            <div class="contact-info">
+                <div class="contact-name">Andrew Miller</div>
+                <div class="contact-status">last seen today at 19:45</div>
+            </div>
+        </div>
+        <div class="chat-area">
+            <div class="date-divider"><span class="date-badge">TODAY</span></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Hey mate, just wanted to send a message. My marriage was on the rocks.</div><div class="message-time">18:35</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">No drive, low libido, and weak erections. My wife thought I was cheating.</div><div class="message-time">18:36</div></div></div>
+            <div class="message sent"><div class="message-bubble"><div class="message-text">I'm sorry to hear that. That's a huge burden.</div><div class="message-time">18:37 <span class="checkmark">✓✓</span></div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">Started your program 3 weeks ago... and it's like I'm 21 again.</div><div class="message-time">18:38</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">My libido is through the roof. I'm initiating again and the quality is fantastic.</div><div class="message-time">18:38</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">We had sex 3 times on the weekend. My wife is radiant. We're communicating and loving again. <span class="emoji">❤️</span></div><div class="message-time">18:39</div></div></div>
+            <div class="message received"><div class="message-bubble"><div class="message-text">You didn't just fix a problem, you saved my family. Thank you.</div><div class="message-time">18:39</div></div></div>
         </div>
     </div>
-    <div class="chat-area">
-        <div class="date-divider"><span class="date-badge">TODAY</span></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Dude, this program saved my relationship!</div></div></div>
-        <div class="message sent"><div class="message-bubble"><div class="message-text">No way! How?</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">I had zero libido, couldn’t maintain erections</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Now everything is back and better than ever 🔥</div></div></div>
-    </div>
-</div>
-
-<!-- CONVERSA 13 (INGLÊS) -->
-<div class="phone-container">
-    <div class="whatsapp-header">
-        <div class="avatar avatar13">KP</div>
-        <div class="contact-info">
-            <div class="contact-name">Kevin Parker</div>
-            <div class="contact-status">online</div>
-        </div>
-    </div>
-    <div class="chat-area">
-        <div class="date-divider"><span class="date-badge">TODAY</span></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Bro, my sexual performance has changed completely!</div></div></div>
-        <div class="message sent"><div class="message-bubble"><div class="message-text">Wow! That fast?</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">Yes, I’m lasting 20+ minutes easily 😎</div></div></div>
-        <div class="message received"><div class="message-bubble"><div class="message-text">My partner is super happy and impressed</div></div></div>
-    </div>
-</div>ar essas próximas conversas detalhadas no mesmo estilo -->
+</body>
+</html>
